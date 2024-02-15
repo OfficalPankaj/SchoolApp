@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Adminpanel.Controllers
 {
@@ -18,15 +19,22 @@ namespace Adminpanel.Controllers
         BannerOperations objBanerOperation = new BannerOperations();
         AboutUsOperations objAboutUsOperation = new AboutUsOperations();
         CourseOperations objCourseOperation = new CourseOperations();
-         GalleryOperations objGalleryOperation = new GalleryOperations();
+        GalleryOperations objGalleryOperation = new GalleryOperations();
 
         // GET: Admin
         public ActionResult Index()
         {
-            return View();
+            if (Session["UserName"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Signin");
+            }
         }
-       
-         public ActionResult Signin()
+
+        public ActionResult Signin()
         {
             ViewBag.ErrorMsg = "";
 
@@ -61,8 +69,16 @@ namespace Adminpanel.Controllers
 
             return View();
         }
-      
 
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            Session.Abandon();
+
+            //  FormsAuthentication.SignOut();
+            return RedirectToAction("Signin");
+
+        }
         [HttpGet]
         public async Task<ActionResult> BannerMaster(int? id)
         {
