@@ -615,7 +615,23 @@ namespace Adminpanel.Controllers
             return RedirectToAction("GalleryMaster");
         }
 
-
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ChangePassword(TblAdminLogin model, string NewPassword)
+        {
+            
+            string userid = Session["UserId"].ToString().Trim();
+            var obj=db.TblAdminLogin.Where(a=>a.Id == Convert.ToInt32(userid) && a.UserPassword == model.UserPassword).FirstOrDefault();
+            if(obj != null)
+            {
+                obj.UserPassword = NewPassword;
+            }
+            db.SaveChanges();
+            return View();
+        }
 
 
     }

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "BannerMaster";
     Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
 }
@@ -28,7 +27,7 @@
                                         <label for="exampleInputPassword1">Banner Image</label>
                                         <input type="file" name="BannerFile" class="form-control" style="min-height:45px !important" id="BannerImage" />
                                         <img src='/Uploads/BannerImages/@ViewBag.BannerFilePath' style="height:100px;width:100px" />
-                                        
+
                                     </div>
                                 </div>
                             }
@@ -44,7 +43,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Status</label>
-                                    <select class="form-control"  id="ddlStatus" name="Status" style="min-height:45px !important">
+                                    <select class="form-control" id="ddlStatus" name="Status" style="min-height:45px !important">
                                         <option value="0">--Select--</option>
                                         <option value="1">Active</option>
                                         <option value="2">In-Active</option>

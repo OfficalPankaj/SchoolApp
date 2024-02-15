@@ -311,6 +311,7 @@
     <Content Include="Views\Admin\AboutUsMaster.cshtml" />
     <Content Include="Views\Admin\CourseMaster.cshtml" />
     <Content Include="Views\Admin\GalleryMaster.cshtml" />
+    <Content Include="Views\Admin\ChangePassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
