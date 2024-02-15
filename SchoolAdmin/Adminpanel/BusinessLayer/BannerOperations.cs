@@ -35,6 +35,7 @@ namespace Adminpanel.BusinessLayer
                 Directory.CreateDirectory(folderPath);
             }
             string filePath = Path.Combine(folderPath, $"{savedFileName}{extension}");
+        
             using (var fileStream = new FileStream(filePath, FileMode.Create))
             {
                 file.InputStream.CopyTo(fileStream);
